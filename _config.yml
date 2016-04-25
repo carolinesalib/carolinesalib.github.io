@@ -5,16 +5,16 @@ paginate_path: "page:num"
 exclude: ["README.md"] # files to exclude
 highlighter: pygments
 markdown: kramdown
-disqus: dbyll
-google_analytics: dbyll
-title: dbyll
+# disqus: dbyll
+# google_analytics: dbyll
+title: Caroline Salib
 
 defaults:
   -
     scope:
       path: "" # empty string for all files
     values:
-      title: dbyll
+      title: Caroline Salib
 
 description: Stylish Jekyll Theme
 author:
@@ -22,7 +22,7 @@ author:
   email: carolinesalibc@gmail.com
   github: carolinesalib
   twitter: shoogie_e
-  linkedin: asd123
+  linkedin: carolinesalib
   bio: Estudante de ciências da computação, amante de tecnologia, automação, software livre, livros, seriados, jogos, viagens e música.
   email_md5: a7d80b0e2379aee62886a21e317fb31d
 
