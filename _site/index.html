@@ -158,112 +158,53 @@
 
   <span class="post-date">
     
-    November
-    15th,
+    April
+    25th,
     
-    2013
+    2016
   </span>
 
   <h2>
-    <a href="/general/setup/demo/2013/11/15/hello-world.html">Hello World!</a>
+    <a href="/vagrant/2016/04/25/certificado-ssl-vagrant.html">Problema de certificado SSL ao baixar uma box no vagrant!</a>
   </h2>
 
   <div>
     
-    <p><strong>dbyll</strong> is minimalist, stylish theme for jekyll. Supports gravatar, account links (github, twitter, e-mail, pinterest, résume file) and a bio.</p>
+    <p>Olá, hoje ao tentar iniciar uma nova box utilizando Vagrant, acabei tendo problemas com certificação. Como não achei solução específica e em português pela internet, resolvi compartilhar pra ajudar quem possa ter o mesmo problema.</p>
 
-<p><strong>dbyll</strong> is brought to you by <strong><a href="http://ismaildemirbilek.com">dbtek</a></strong>. Open sourced under <a href="http://opensource.org/licenses/MIT">MIT</a> license.</p>
+<p><strong>Problema retornado pelo GitShell no windows:</strong></p>
 
-<h3 id="dbyll-is-on-github">dbyll is on GitHub</h3>
+<p>An error occurred while downloading the remote file. The error
+message, if any, is reproduced below. Please fix this error and try
+again.</p>
 
-<p><a class="btn btn-default" href="https://github.com/dbtek/dbyll">Grab your copy now!</a></p>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">SSL certificate problem</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">unable to get local issuer certificate</span>
+<span class="l-Scalar-Plain">More details here</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">http://curl.haxx.se/docs/sslcerts.html</span>
 
-    
-  </div>
+<span class="l-Scalar-Plain">curl performs SSL certificate verification by default, using a &quot;bundle&quot;</span>
+ <span class="l-Scalar-Plain">of Certificate Authority (CA) public keys (CA certs). If the default</span>
+ <span class="l-Scalar-Plain">bundle file isn&#39;t adequate, you can specify an alternate file</span>
+ <span class="l-Scalar-Plain">using the --cacert option.</span>
+<span class="l-Scalar-Plain">If this HTTPS server uses a certificate signed by a CA represented in</span>
+ <span class="l-Scalar-Plain">the bundle, the certificate verification probably failed due to a</span>
+ <span class="l-Scalar-Plain">problem with the certificate (it might be expired, or the name might</span>
+ <span class="l-Scalar-Plain">not match the domain name in the URL).</span>
+<span class="l-Scalar-Plain">If you&#39;d like to turn off curl&#39;s verification of the certificate, use</span>
+ <span class="l-Scalar-Plain">the -k (or --insecure) option.</span></code></pre></figure>
 
-</article>
+<p><strong>Solução encontrada:</strong></p>
 
+<p>O comando abaixo foi adicionado no meu Vagrantfile para que ignorasse o certificado SSL que estava impedindo o download da box.</p>
 
-<article class="home">
+<p><code>
+config.vm.box_download_insecure = "https://caminhoparadownload.nomedabox.box"
+</code></p>
 
-  <span class="post-date">
-    
-    November
-    15th,
-    
-    2013
-  </span>
+<p>Após alterado o Vagrantfile, basta executar “vagrant up” novamente.</p>
 
-  <h2>
-    <a href="/general/setup/demo/2013/11/15/configuration.html">Configuration</a>
-  </h2>
+<p>Referencias:
+https://docs.vagrantup.com/v2/vagrantfile/machine_settings.html</p>
 
-  <div>
-    
-    <p>In your config file change these settings</p>
-
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">dbyll</span>
-<span class="l-Scalar-Plain">author</span><span class="p-Indicator">:</span>  
-  <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yourname</span>  
-  <span class="l-Scalar-Plain">email</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">youremail</span>  
-  <span class="l-Scalar-Plain">github</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">asd123</span>  
-  <span class="l-Scalar-Plain">twitter</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">asd123</span>  
-  <span class="l-Scalar-Plain">pinterest</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">asd123</span>  
-  <span class="l-Scalar-Plain">linkedin</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">asd123</span>  
-  <span class="l-Scalar-Plain">resume</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">asd123</span>  
-  <span class="l-Scalar-Plain">bio</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Your stylish,  minimalist theme!</span>  
-  <span class="l-Scalar-Plain">email_md5</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">md5ofemail</span>  </code></pre></figure>
-
-    
-  </div>
-
-</article>
-
-
-<article class="home">
-
-  <span class="post-date">
-    
-    November
-    14th,
-    
-    2013
-  </span>
-
-  <h2>
-    <a href="/general/demo/2013/11/14/sample.html">Sample</a>
-  </h2>
-
-  <div>
-    
-    
-    Sample placeholder post.
-    
-    
-  </div>
-
-</article>
-
-
-<article class="home">
-
-  <span class="post-date">
-    
-    November
-    14th,
-    
-    2013
-  </span>
-
-  <h2>
-    <a href="/general/demo/sample/2013/11/14/sample-2.html">Sample 2</a>
-  </h2>
-
-  <div>
-    
-    
-    Sample placeholder post.
-    
     
   </div>
 

@@ -7,66 +7,45 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>Hello World!</title>
-				<description>&lt;p&gt;&lt;strong&gt;dbyll&lt;/strong&gt; is minimalist, stylish theme for jekyll. Supports gravatar, account links (github, twitter, e-mail, pinterest, résume file) and a bio.&lt;/p&gt;
+				<title>Problema de certificado SSL ao baixar uma box no vagrant!</title>
+				<description>&lt;p&gt;Olá, hoje ao tentar iniciar uma nova box utilizando Vagrant, acabei tendo problemas com certificação. Como não achei solução específica e em português pela internet, resolvi compartilhar pra ajudar quem possa ter o mesmo problema.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;dbyll&lt;/strong&gt; is brought to you by &lt;strong&gt;&lt;a href=&quot;http://ismaildemirbilek.com&quot;&gt;dbtek&lt;/a&gt;&lt;/strong&gt;. Open sourced under &lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;MIT&lt;/a&gt; license.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Problema retornado pelo GitShell no windows:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;dbyll-is-on-github&quot;&gt;dbyll is on GitHub&lt;/h3&gt;
+&lt;p&gt;An error occurred while downloading the remote file. The error
+message, if any, is reproduced below. Please fix this error and try
+again.&lt;/p&gt;
 
-&lt;p&gt;&lt;a class=&quot;btn btn-default&quot; href=&quot;https://github.com/dbtek/dbyll&quot;&gt;Grab your copy now!&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;SSL certificate problem&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;unable to get local issuer certificate&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;More details here&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;http://curl.haxx.se/docs/sslcerts.html&lt;/span&gt;
+
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;curl performs SSL certificate verification by default, using a &amp;quot;bundle&amp;quot;&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;of Certificate Authority (CA) public keys (CA certs). If the default&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;bundle file isn&amp;#39;t adequate, you can specify an alternate file&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;using the --cacert option.&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;If this HTTPS server uses a certificate signed by a CA represented in&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;the bundle, the certificate verification probably failed due to a&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;problem with the certificate (it might be expired, or the name might&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;not match the domain name in the URL).&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;If you&amp;#39;d like to turn off curl&amp;#39;s verification of the certificate, use&lt;/span&gt;
+ &lt;span class=&quot;l-Scalar-Plain&quot;&gt;the -k (or --insecure) option.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Solução encontrada:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;O comando abaixo foi adicionado no meu Vagrantfile para que ignorasse o certificado SSL que estava impedindo o download da box.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+config.vm.box_download_insecure = &quot;https://caminhoparadownload.nomedabox.box&quot;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Após alterado o Vagrantfile, basta executar “vagrant up” novamente.&lt;/p&gt;
+
+&lt;p&gt;Referencias:
+https://docs.vagrantup.com/v2/vagrantfile/machine_settings.html&lt;/p&gt;
 </description>
-				<pubDate>Fri, 15 Nov 2013 00:00:00 -0200</pubDate>
-				<link>/general/setup/demo/2013/11/15/hello-world.html</link>
-				<guid isPermaLink="true">/general/setup/demo/2013/11/15/hello-world.html</guid>
-			</item>
-		
-			<item>
-				<title>Configuration</title>
-				<description>&lt;p&gt;In your config file change these settings&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;dbyll&lt;/span&gt;
-&lt;span class=&quot;l-Scalar-Plain&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;  
-  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yourname&lt;/span&gt;  
-  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;youremail&lt;/span&gt;  
-  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;asd123&lt;/span&gt;  
-  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;twitter&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;asd123&lt;/span&gt;  
-  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;pinterest&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;asd123&lt;/span&gt;  
-  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;linkedin&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;asd123&lt;/span&gt;  
-  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;resume&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;asd123&lt;/span&gt;  
-  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;bio&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;Your stylish,  minimalist theme!&lt;/span&gt;  
-  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;email_md5&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;md5ofemail&lt;/span&gt;  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-</description>
-				<pubDate>Fri, 15 Nov 2013 00:00:00 -0200</pubDate>
-				<link>/general/setup/demo/2013/11/15/configuration.html</link>
-				<guid isPermaLink="true">/general/setup/demo/2013/11/15/configuration.html</guid>
-			</item>
-		
-			<item>
-				<title>Sample</title>
-				<description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
-
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;foo&amp;#39;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-</description>
-				<pubDate>Thu, 14 Nov 2013 00:00:00 -0200</pubDate>
-				<link>/general/demo/2013/11/14/sample.html</link>
-				<guid isPermaLink="true">/general/demo/2013/11/14/sample.html</guid>
-			</item>
-		
-			<item>
-				<title>Sample 2</title>
-				<description>&lt;p&gt;Lorem ipsum dolor sit amet,  consectetur adipisicing elit,  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,  sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
-
-&lt;p&gt;Lorem ipsum dolor sit amet,  consectetur adipisicing elit,  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,  sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
-</description>
-				<pubDate>Thu, 14 Nov 2013 00:00:00 -0200</pubDate>
-				<link>/general/demo/sample/2013/11/14/sample-2.html</link>
-				<guid isPermaLink="true">/general/demo/sample/2013/11/14/sample-2.html</guid>
+				<pubDate>Mon, 25 Apr 2016 00:00:00 -0300</pubDate>
+				<link>/vagrant/2016/04/25/certificado-ssl-vagrant.html</link>
+				<guid isPermaLink="true">/vagrant/2016/04/25/certificado-ssl-vagrant.html</guid>
 			</item>
 		
 	</channel>

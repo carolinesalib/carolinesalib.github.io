@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Hello World!</title>
+	<title>Problema de certificado SSL ao baixar uma box no vagrant!</title>
 	
 	<meta name="author" content="Caroline">
 
@@ -149,7 +149,7 @@
 
 	<div class="col-sm-9 col-sm-offset-3">
 		<div class="page-header">
-  <h1>Hello World! </h1>
+  <h1>Problema de certificado SSL ao baixar uma box no vagrant! </h1>
 </div>
 	
 <article>
@@ -157,19 +157,40 @@
 	<div class="col-sm-10">
 	 <span class="post-date">
 	   
-	   November 
-	   15th,
+	   April 
+	   25th,
 	   
-	   2013
+	   2016
 	 </span>
 	  <div class="article_body">
-	  <p><strong>dbyll</strong> is minimalist, stylish theme for jekyll. Supports gravatar, account links (github, twitter, e-mail, pinterest, résume file) and a bio.</p>
+	  <p>Olá, hoje ao tentar iniciar uma nova box utilizando Vagrant, acabei tendo problemas com certificação. Como não achei solução específica e em português pela internet, resolvi compartilhar pra ajudar quem possa ter o mesmo problema.</p>
 
-<p><strong>dbyll</strong> is brought to you by <strong><a href="http://ismaildemirbilek.com">dbtek</a></strong>. Open sourced under <a href="http://opensource.org/licenses/MIT">MIT</a> license.</p>
+<p>Problema retornado pelo GitShell no windows:
+An error occurred while downloading the remote file. The error
+message, if any, is reproduced below. Please fix this error and try
+again.</p>
 
-<h3 id="dbyll-is-on-github">dbyll is on GitHub</h3>
+<p>SSL certificate problem: unable to get local issuer certificate
+More details here: http://curl.haxx.se/docs/sslcerts.html</p>
 
-<p><a class="btn btn-default" href="https://github.com/dbtek/dbyll">Grab your copy now!</a></p>
+<p>curl performs SSL certificate verification by default, using a “bundle”
+ of Certificate Authority (CA) public keys (CA certs). If the default
+ bundle file isn’t adequate, you can specify an alternate file
+ using the –cacert option.
+If this HTTPS server uses a certificate signed by a CA represented in
+ the bundle, the certificate verification probably failed due to a
+ problem with the certificate (it might be expired, or the name might
+ not match the domain name in the URL).
+If you’d like to turn off curl’s verification of the certificate, use
+ the -k (or –insecure) option.</p>
+
+<p>Solução encontrada:
+O comando abaixo foi adicionado no meu Vagrantfile para que ignorasse o certificado SSL que estava impedindo o download da box.
+config.vm.box_download_insecure = “https://caminhoparadownload.nomedabox.box”
+Após alterado o Vagrantfile, basta executar “vagrant up” novamente.</p>
+
+<p>Referencias:
+https://docs.vagrantup.com/v2/vagrantfile/machine_settings.html</p>
 
 	  </div>
 
@@ -179,18 +200,38 @@
 		  
 		  
 			 
-				<li><a href="/categories.html#general-ref">
-					general <span>(4)</span>
+				<li><a href="/categories.html#vagrant-ref">
+					vagrant <span>(1)</span>
 					,
 				</a></li>
 			 
-				<li><a href="/categories.html#setup-ref">
-					setup <span>(2)</span>
+				<li><a href="/categories.html#ssl-ref">
+					ssl <span>(1)</span>
 					,
 				</a></li>
 			 
-				<li><a href="/categories.html#demo-ref">
-					demo <span>(4)</span>
+				<li><a href="/categories.html#certificado-ref">
+					certificado <span>(1)</span>
+					,
+				</a></li>
+			 
+				<li><a href="/categories.html#error-ref">
+					error <span>(1)</span>
+					,
+				</a></li>
+			 
+				<li><a href="/categories.html#download-ref">
+					download <span>(1)</span>
+					,
+				</a></li>
+			 
+				<li><a href="/categories.html#box-ref">
+					box <span>(1)</span>
+					,
+				</a></li>
+			 
+				<li><a href="/categories.html#certificate-ref">
+					certificate <span>(1)</span>
 					
 				</a></li>
 			
@@ -206,28 +247,28 @@
 			 
 				<li>
 					<a href="/tags.html#demo-ref">
-					demo <span>(4)</span>
+					demo <span>(5)</span>
 					,
 					</a>
 				</li>
 			 
 				<li>
 					<a href="/tags.html#dbyll-ref">
-					dbyll <span>(4)</span>
+					dbyll <span>(5)</span>
 					,
 					</a>
 				</li>
 			 
 				<li>
 					<a href="/tags.html#dbtek-ref">
-					dbtek <span>(4)</span>
+					dbtek <span>(5)</span>
 					,
 					</a>
 				</li>
 			 
 				<li>
 					<a href="/tags.html#setup-ref">
-					setup <span>(2)</span>
+					setup <span>(3)</span>
 					
 					</a>
 				</li>
@@ -242,7 +283,7 @@
 		<div>
       <section class="share col-sm-6">
         <h4 class="section-title">Share Post</h4>
-        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Hello World!&via=shoogie_e"
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Problema de certificado SSL ao baixar uma box no vagrant!&via=shoogie_e"
            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
           <i class="fa fa-twitter fa-lg"></i>
           Twitter
@@ -270,10 +311,10 @@
 
 		<ul class="pager">
 		  
-		  <li class="previous"><a href="/general/setup/demo/2013/11/15/configuration.html" title="Configuration">&larr; Previous</a></li>
+		  <li class="previous"><a href="/general/setup/demo/2013/11/15/hello-world.html" title="Hello World!">&larr; Previous</a></li>
 		  
 		  
-		  <li class="next"><a href="/vagrant/2016/04/25/certificado-ssl-vagrant.html" title="Problema de certificado SSL ao baixar uma box no vagrant!">Next &rarr;</a></li>
+			<li class="next disabled"><a>Next &rarr;</a>
 		  
 		</ul>
 
