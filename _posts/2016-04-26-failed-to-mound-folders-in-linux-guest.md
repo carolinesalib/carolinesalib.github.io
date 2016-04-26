@@ -23,8 +23,8 @@ stdin: is not a tty mount: unknown filesystem type 'vboxsf'
 
 Caso este erro aconteça ao iniciar sua máquina virtual, execute o comando abaixo para que suas pastas sejam compartilhadas corretamente.
 
-<code>
+{% highlight shell %}
 vagrant plugin install vagrant-vbguest
 
 vagrant up; vagrant ssh -c 'sudo ln -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions'; vagrant reload
-</code>
+{% endhighlight %}
