@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Caroline Salib</title>
+	<title>Failed to mound folders in linux guest</title>
 	
 	<meta name="author" content="Caroline">
 
@@ -149,28 +149,21 @@
 
 	<div class="col-sm-9 col-sm-offset-3">
 		<div class="page-header">
-  <h1>Caroline Salib </h1>
+  <h1>Failed to mound folders in linux guest </h1>
 </div>
+	
+<article>
 
-
-
-<article class="home">
-
-  <span class="post-date">
-    
-    April
-    26th,
-    
-    2016
-  </span>
-
-  <h2>
-    <a href="/vagrant/2016/04/26/failed-to-mound-folders-in-linux-guest.html">Failed to mound folders in linux guest</a>
-  </h2>
-
-  <div>
-    
-    <p><strong>Problema</strong></p>
+	<div class="col-sm-10">
+	 <span class="post-date">
+	   
+	   April 
+	   26th,
+	   
+	   2016
+	 </span>
+	  <div class="article_body">
+	  <p><strong>Problema</strong></p>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">Failed to mount folders in Linux guest. This is usually because the "vboxsf" file system is not available. Please verify that the guest additions are properly installed in the guest and can work properly. The command attempted was</span><span class="pi">:</span>
 
@@ -189,89 +182,132 @@
 vagrant up; vagrant ssh -c <span class="s1">'sudo ln -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions'</span>; vagrant reload</code></pre></figure>
 
 
-    
-  </div>
+	  </div>
 
+		
+		<ul class="tag_box list-unstyled list-inline">
+		  <li><i class="fa fa-folder-open"></i></li>
+		  
+		  
+			 
+				<li><a href="/categories.html#vagrant-ref">
+					vagrant <span>(2)</span>
+					
+				</a></li>
+			
+		  
+		</ul>
+		  
+
+		
+		<ul class="list-inline">
+		  <li><i class="fa fa-tags"></i></li>
+		  
+		  
+			 
+				<li>
+					<a href="/tags.html#vagrant-ref">
+					vagrant <span>(2)</span>
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#virtualbox-ref">
+					virtualbox <span>(1)</span>
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#linux-ref">
+					linux <span>(1)</span>
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#ubuntu-ref">
+					ubuntu <span>(1)</span>
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#guest-ref">
+					guest <span>(1)</span>
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#folders-ref">
+					folders <span>(1)</span>
+					,
+					</a>
+				</li>
+			 
+				<li>
+					<a href="/tags.html#failed-ref">
+					failed <span>(1)</span>
+					
+					</a>
+				</li>
+			
+		  
+		  
+		</ul>
+		  
+
+		<hr>
+
+		<div>
+      <section class="share col-sm-6">
+        <h4 class="section-title">Share Post</h4>
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=Failed to mound folders in linux guest&via=shoogie_e"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter fa-lg"></i>
+          Twitter
+        </a>
+        <a class="btn btn-default btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook fa-lg"></i>
+          Facebook
+        </a>
+        <a class="btn btn-default btn-sm gplus"
+           onclick="window.open('https://plus.google.com/share?url='+window.location.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <i class="fa fa-google-plus fa-lg"></i>
+          Google+
+        </a>
+      </section>
+
+      <section class="col-sm-6 author">
+        <img src="https://pt.gravatar.com/userimage/90095350/9c0cd460131ce4eec7a189b0b006774f.png" class="img-rounded author-image" />
+        <h4 class="section-title author-name">Caroline</h4>
+        <p class="author-bio">Estudante de ciências da computação, apaixonada por software livre, adora viajar e também ler livros, assistir seriados e até jogar um pouco de vídeo-game nas horas vagas.</p>
+      </section>
+    </div>
+
+    <div class="clearfix"></div>
+
+		<ul class="pager">
+		  
+		  <li class="previous"><a href="/vagrant/2016/04/25/certificado-ssl-vagrant.html" title="Problema de certificado SSL ao baixar uma box no vagrant!">&larr; Previous</a></li>
+		  
+		  
+			<li class="next disabled"><a>Next &rarr;</a>
+		  
+		</ul>
+
+		<hr>
+	</div>
+	
+	<div class="col-sm-2 sidebar-2">
+	
+	</div>
 </article>
+<div class="clearfix"></div>
 
-
-<article class="home">
-
-  <span class="post-date">
-    
-    April
-    25th,
-    
-    2016
-  </span>
-
-  <h2>
-    <a href="/vagrant/2016/04/25/certificado-ssl-vagrant.html">Problema de certificado SSL ao baixar uma box no vagrant!</a>
-  </h2>
-
-  <div>
-    
-    <p>Olá, hoje ao tentar iniciar uma nova box utilizando Vagrant, acabei tendo problemas com certificação. Como não achei solução específica e em português pela internet, resolvi compartilhar pra ajudar quem possa ter o mesmo problema.</p>
-
-<p><strong>Problema retornado pelo GitShell no windows:</strong></p>
-
-<p>An error occurred while downloading the remote file. The error
-message, if any, is reproduced below. Please fix this error and try
-again.</p>
-
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">SSL certificate problem</span><span class="pi">:</span> <span class="s">unable to get local issuer certificate</span>
-<span class="s">More details here</span><span class="pi">:</span> <span class="s">http://curl.haxx.se/docs/sslcerts.html</span>
-
-<span class="s">curl performs SSL certificate verification by default, using a "bundle"</span>
- <span class="s">of Certificate Authority (CA) public keys (CA certs). If the default</span>
- <span class="s">bundle file isn't adequate, you can specify an alternate file</span>
- <span class="s">using the --cacert option.</span>
-<span class="s">If this HTTPS server uses a certificate signed by a CA represented in</span>
- <span class="s">the bundle, the certificate verification probably failed due to a</span>
- <span class="s">problem with the certificate (it might be expired, or the name might</span>
- <span class="s">not match the domain name in the URL).</span>
-<span class="s">If you'd like to turn off curl's verification of the certificate, use</span>
- <span class="s">the -k (or --insecure) option.</span></code></pre></figure>
-
-<p><strong>Solução encontrada:</strong></p>
-
-<p>O comando abaixo foi adicionado no meu Vagrantfile para que ignorasse o certificado SSL que estava impedindo o download da box.</p>
-
-<p><code>
-config.vm.box_download_insecure = "https://caminhoparadownload.nomedabox.box"
-</code></p>
-
-<p>Após alterado o Vagrantfile, basta executar “vagrant up” novamente.</p>
-
-<p>Referencias:
-https://docs.vagrantup.com/v2/vagrantfile/machine_settings.html</p>
-
-    
-  </div>
-
-</article>
-
-<hr/>
-
-<ul class="pager"> 
-
-  
-  <li class="previous disabled">
-    <a>&larr; Newer</a>
-  </li>
-  
-  
-  <li>
-    <span class="page_number">Page: 1 of 1</span>
-  </li>
-
-  
-  <li class="next disabled">
-    <a>Older &rarr;</a>        
-  </li>
-  
-
-</ul>
 
 
 

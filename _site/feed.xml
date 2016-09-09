@@ -7,6 +7,32 @@
 		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Failed to mound folders in linux guest</title>
+				<description>&lt;p&gt;&lt;strong&gt;Problema&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;s&quot;&gt;Failed to mount folders in Linux guest. This is usually because the &quot;vboxsf&quot; file system is not available. Please verify that the guest additions are properly installed in the guest and can work properly. The command attempted was&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+
+&lt;span class=&quot;s&quot;&gt;mount -t vboxsf -o uid=id -u vagrant,gid=getent group vagrant | cut -d&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;-f3 home_vagrant_ieducar /home/vagrant/ieducar mount -t vboxsf -o uid=id -u vagrant,gid=id -g vagrant home_vagrant_ieducar /home/vagrant/ieducar&lt;/span&gt;
+
+&lt;span class=&quot;s&quot;&gt;The error output from the last command was&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+
+&lt;span class=&quot;s&quot;&gt;stdin&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;is not a tty mount&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;unknown filesystem type &#39;vboxsf&#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Solução&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Caso este erro aconteça ao iniciar sua máquina virtual, execute o comando abaixo para que suas pastas sejam compartilhadas corretamente.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;vagrant plugin install vagrant-vbguest
+
+vagrant up; vagrant ssh -c &lt;span class=&quot;s1&quot;&gt;&#39;sudo ln -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions&#39;&lt;/span&gt;; vagrant reload&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+</description>
+				<pubDate>Tue, 26 Apr 2016 00:00:00 -0300</pubDate>
+				<link>/vagrant/2016/04/26/failed-to-mound-folders-in-linux-guest.html</link>
+				<guid isPermaLink="true">/vagrant/2016/04/26/failed-to-mound-folders-in-linux-guest.html</guid>
+			</item>
+		
+			<item>
 				<title>Problema de certificado SSL ao baixar uma box no vagrant!</title>
 				<description>&lt;p&gt;Olá, hoje ao tentar iniciar uma nova box utilizando Vagrant, acabei tendo problemas com certificação. Como não achei solução específica e em português pela internet, resolvi compartilhar pra ajudar quem possa ter o mesmo problema.&lt;/p&gt;
 
@@ -16,19 +42,19 @@
 message, if any, is reproduced below. Please fix this error and try
 again.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;SSL certificate problem&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;unable to get local issuer certificate&lt;/span&gt;
-&lt;span class=&quot;l-Scalar-Plain&quot;&gt;More details here&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;http://curl.haxx.se/docs/sslcerts.html&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;s&quot;&gt;SSL certificate problem&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;unable to get local issuer certificate&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;More details here&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://curl.haxx.se/docs/sslcerts.html&lt;/span&gt;
 
-&lt;span class=&quot;l-Scalar-Plain&quot;&gt;curl performs SSL certificate verification by default, using a &amp;quot;bundle&amp;quot;&lt;/span&gt;
- &lt;span class=&quot;l-Scalar-Plain&quot;&gt;of Certificate Authority (CA) public keys (CA certs). If the default&lt;/span&gt;
- &lt;span class=&quot;l-Scalar-Plain&quot;&gt;bundle file isn&amp;#39;t adequate, you can specify an alternate file&lt;/span&gt;
- &lt;span class=&quot;l-Scalar-Plain&quot;&gt;using the --cacert option.&lt;/span&gt;
-&lt;span class=&quot;l-Scalar-Plain&quot;&gt;If this HTTPS server uses a certificate signed by a CA represented in&lt;/span&gt;
- &lt;span class=&quot;l-Scalar-Plain&quot;&gt;the bundle, the certificate verification probably failed due to a&lt;/span&gt;
- &lt;span class=&quot;l-Scalar-Plain&quot;&gt;problem with the certificate (it might be expired, or the name might&lt;/span&gt;
- &lt;span class=&quot;l-Scalar-Plain&quot;&gt;not match the domain name in the URL).&lt;/span&gt;
-&lt;span class=&quot;l-Scalar-Plain&quot;&gt;If you&amp;#39;d like to turn off curl&amp;#39;s verification of the certificate, use&lt;/span&gt;
- &lt;span class=&quot;l-Scalar-Plain&quot;&gt;the -k (or --insecure) option.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;s&quot;&gt;curl performs SSL certificate verification by default, using a &quot;bundle&quot;&lt;/span&gt;
+ &lt;span class=&quot;s&quot;&gt;of Certificate Authority (CA) public keys (CA certs). If the default&lt;/span&gt;
+ &lt;span class=&quot;s&quot;&gt;bundle file isn&#39;t adequate, you can specify an alternate file&lt;/span&gt;
+ &lt;span class=&quot;s&quot;&gt;using the --cacert option.&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;If this HTTPS server uses a certificate signed by a CA represented in&lt;/span&gt;
+ &lt;span class=&quot;s&quot;&gt;the bundle, the certificate verification probably failed due to a&lt;/span&gt;
+ &lt;span class=&quot;s&quot;&gt;problem with the certificate (it might be expired, or the name might&lt;/span&gt;
+ &lt;span class=&quot;s&quot;&gt;not match the domain name in the URL).&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;If you&#39;d like to turn off curl&#39;s verification of the certificate, use&lt;/span&gt;
+ &lt;span class=&quot;s&quot;&gt;the -k (or --insecure) option.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;strong&gt;Solução encontrada:&lt;/strong&gt;&lt;/p&gt;
 
